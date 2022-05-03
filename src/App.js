@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import TitleSection from "./components/molecules/titleSection";
 import AppBarComp from "./components/organisms/appBarComp";
 import Copyright from "./components/organisms/footer";
@@ -53,7 +53,7 @@ function App() {
           subtitle="Dunia Keramik Partner adalah layanan yang menyediakan pengalaman menjadi reseller keramik yang berbeda dari yang lain, dan menawarkan kemudahan dengan website yang terkelola"
         />
         <ListValue
-        image={interaksi}
+          image={interaksi}
           data={data1}
           position="right"
           title="Manajemen Partner yang terintegrasi"
@@ -68,13 +68,13 @@ function App() {
           title="Reseller Keramik Tanpa deposit pertama di indonesia"
           subtitle="Tanpa biaya administrasi, kini Anda benar-benar dapat memulai bisnis tanpa modal sepeser pun. Mulai bisnis Anda dengan modal Rp0 dan dapatkan kemudahan fitur untuk meraih kesuksesan."
         />
+        <ListValue
+          image={building}
+          data={data2}
+          position="left"
+          title="Kebebasan Mengenalkan Bisnis Kepada Pelanggan"
+        />
       </Box>
-      <ListValue
-        image={building}
-        data={data2}
-        position="left"
-        title="Kebebasan Mengenalkan Bisnis Kepada Pelanggan"
-      />
       <TextForm />
       <Copyright />
     </>

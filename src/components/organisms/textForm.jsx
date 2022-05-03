@@ -14,6 +14,7 @@ export default function TextForm(props) {
         <Box
           sx={{
             display: "flex",
+          p: { xs: "1rem", md: "2rem" },
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
