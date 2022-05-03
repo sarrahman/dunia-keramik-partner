@@ -1,14 +1,18 @@
 import { Box, CardMedia, Typography } from "@mui/material";
-import Team from "../../assets/team.svg";
 import ListDescription from "../molecules/listDescription";
 
 export default function ListValue(props) {
+  const data = props.data || [];
+
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: { xs: "center", md: "space-around" },
-        flexDirection: { xs: "column-reverse", md: "row-reverse" },
+        flexDirection: {
+          xs: "column-reverse",
+          md: props.position === "left" ? "row" : "row-reverse",
+        },
       }}
     >
       <Box
@@ -16,7 +20,7 @@ export default function ListValue(props) {
           display: "flex",
           flexGrow: 2,
           flexDirection: "column",
-        p: { xs: "1rem", md: "2rem" },
+          p: { xs: "1rem", md: "2rem" },
         }}
       >
         <Typography
@@ -28,18 +32,9 @@ export default function ListValue(props) {
         >
           {props.title}
         </Typography>
-        <ListDescription
-          title="Produk Yang Terkelola"
-          body="Waktu Anda sangat berharga, kini menjual keramik lebih mudah kepada pelanggan dengan produk yang terintegrasi tanpa harus kesulitan mengelola produk satu per satu."
-        />
-        <ListDescription
-          title="Free Website"
-          body="Tingkatkan branding bisnis dengan website yang membantu Anda memiliki merk dan brand layanan sendiri. Tersedia khusus dengan domain Anda untuk kemudahan mengembangkan brand bisnis."
-        />
-        <ListDescription
-          title="Whatsapp Otomatis"
-          body="Fitur pengiriman pesan otomatis melalui Whatsapp yang terintegrasi dengan sistem untuk mengirimkan pesanan dari pelanggan Anda."
-        />
+        {data.map((item, index) => {
+          return <ListDescription key={index} {...item} />;
+        })}
       </Box>
       <Box
         sx={{
@@ -50,12 +45,7 @@ export default function ListValue(props) {
           mb: { xs: "1rem", md: "0" },
         }}
       >
-        <CardMedia
-          width="100%"
-          component="img"
-          src={Team}
-          alt="team"
-        />
+        <CardMedia width="100%" component="img" src={props.image} alt="team" />
       </Box>
     </Box>
   );
