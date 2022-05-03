@@ -75,7 +75,9 @@ function App() {
           title="Kebebasan Mengenalkan Bisnis Kepada Pelanggan"
         />
       </Box>
+      <Box id="daftar">
       <TextForm />
+      </Box>
       <Copyright />
     </>
   );
