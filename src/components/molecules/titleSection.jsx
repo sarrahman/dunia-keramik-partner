@@ -19,6 +19,7 @@ export default function TitleSection(props) {
       >
         <Typography sx={{
             mb: { xs: "1rem", md: "2rem" },
+            fontWeight: "bold",
         }} variant="h6">{props.title}</Typography>
         <Typography variant="subtitle1">{props.subtitle}</Typography>
       </Box>

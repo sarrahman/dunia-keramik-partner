@@ -7,6 +7,21 @@ import ListValue from "./components/organisms/listValue";
 import TextForm from "./components/organisms/textForm";
 import interaksi from "./assets/interaksi.svg";
 import building from "./assets/building-web.svg";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#992d0d",
+    },
+    secondary: {
+      main: "#c36505",
+    },
+    background: {
+      main: "#eaebe8",
+    },
+  },
+});
 
 const data1 = [
   {
@@ -40,7 +55,7 @@ const data2 = [
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AppBarComp />
       <Jumbotron />
       <Box
@@ -79,7 +94,7 @@ function App() {
       <TextForm />
       </Box>
       <Copyright />
-    </>
+      </ThemeProvider>
   );
 }
 
