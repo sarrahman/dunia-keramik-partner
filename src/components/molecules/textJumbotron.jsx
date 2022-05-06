@@ -28,7 +28,7 @@ export default function TextJumbotron() {
       </Typography>
       <Button
         onClick={() => {
-          window.location.href = "/#daftar";
+          window.location.href = "/#detail";
         }}
         sx={{
           width: { xs: "100%", md: "80%" },
@@ -36,7 +36,7 @@ export default function TextJumbotron() {
         variant="contained"
         color="primary"
       >
-        daftar partner
+        Lebih Detail
       </Button>
     </Box>
   );
