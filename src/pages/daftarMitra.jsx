@@ -80,10 +80,14 @@ function DaftarMitra(props) {
               .then((res) => {
                 setMessage(res.data.message);
                 setTimeout(() => {
-                  navigate("/success");
+                  navigate("/success", { state: {url: res.data.data.ssl_url} });
                 }, 1000);
               })
-              .catch((err) => console.log(err));
+              .catch((err) =>
+                setMessage(
+                  `${err.response.data.message}, kemungkinan terjadi karena nama bisnis anda telah digunakan mitra lain`
+                )
+              );
           }
         })
         .catch((err) => setMessage(err.message));
