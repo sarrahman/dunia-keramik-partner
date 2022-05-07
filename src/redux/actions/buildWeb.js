@@ -1,7 +1,7 @@
 import api from "../../utils/api";
 
 export const buildWeb = (data) => (dispatch) => {
-  const {namaBisnis, colorWeb, facebookUrl, instagramUrl} = data;
+  const {namaBisnis, colorWeb, facebookUrl, instagramUrl, noHP} = data;
 
   return new Promise((resolve, reject) => {
     api
@@ -12,6 +12,7 @@ export const buildWeb = (data) => (dispatch) => {
         thirdColor: colorWeb[2],
         facebookUrl,
         instagramUrl,
+        noHP,
       })
       .then((response) => {
         resolve(response);

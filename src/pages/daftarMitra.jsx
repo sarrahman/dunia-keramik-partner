@@ -35,6 +35,7 @@ function DaftarMitra(props) {
     colorWeb: color[0],
     facebookUrl: "",
     instagramUrl: "",
+    noHP: value.noHp
   });
 
   useEffect(() => {
