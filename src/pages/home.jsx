@@ -4,7 +4,7 @@ import AppBarComp from "../components/organisms/appBarComp";
 import Copyright from "../components/organisms/footer";
 import Jumbotron from "../components/organisms/jumbotron";
 import ListValue from "../components/organisms/listValue";
-import TextForm from "../components/organisms/textForm";
+import CTA from "../components/organisms/cta";
 import interaksi from "../assets/interaksi.svg";
 import building from "../assets/building-web.svg";
 
@@ -77,7 +77,7 @@ function Home() {
         />
       </Box>
       <Box>
-        <TextForm />
+        <CTA />
       </Box>
       <Copyright />
     </>

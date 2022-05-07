@@ -1,7 +1,8 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Router from "./routes";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const theme = createTheme({
   palette: {
@@ -20,7 +21,9 @@ const theme = createTheme({
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-          <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </ThemeProvider>
   );
 }

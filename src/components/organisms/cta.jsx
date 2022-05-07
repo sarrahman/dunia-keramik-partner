@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
+import {useNavigate} from 'react-router-dom';
 
-export default function TextForm(props) {
+export default function CTA(props) {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -21,9 +23,10 @@ export default function TextForm(props) {
         variant="h6"
       >
         Jika ide ini terdengar menarik, silahkan menjadi mitra kami sekarang
-        <Typography sx={{fontWeight: 'bold'}} variant="h5">Gratis</Typography>
+        <b> Gratis</b>
       </Typography>
       <Button
+      onClick={() => navigate("/daftar/mitra")}
         variant="contained"
         sx={{
           width: "80%",

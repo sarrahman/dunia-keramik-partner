@@ -10,7 +10,6 @@ export default function RadioButtonComp(props) {
     const color = props.color;
 
   const handleRadioChange = (event) => {
-    // console.log(event.target.value);
     props.value(event.target.value);
   };
 
@@ -22,11 +21,11 @@ export default function RadioButtonComp(props) {
       }}
     >
       <FormLabel>Warna Website</FormLabel>
-      <RadioGroup defaultValue={color[0]} onChange={handleRadioChange}>
+      <RadioGroup defaultValue={'color[0]'} onChange={handleRadioChange}>
         {color.map((color, index) => (
           <FormControlLabel
             key={index}
-            value={`color${index + 1}`}
+            value={`color[${index}]`}
             control={<Radio />}
             label={
               <Box
