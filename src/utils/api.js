@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://dunia-keramik.herokuapp.com/api";
+const baseURL = "https://backend-dunia-keramik.herokuapp.com/api";
 
 // const baseURL =
 //   process.env.NODE_ENV === "production"
