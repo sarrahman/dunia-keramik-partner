@@ -1,8 +1,11 @@
 import api from "../../utils/api";
 
 export const buildWeb = (data) => (dispatch) => {
-  const {namaBisnis, colorWeb, facebookUrl, instagramUrl, noHP} = data;
-
+  dispatch({
+    type: "LOADING",
+    value: true
+  });
+  const { namaBisnis, colorWeb, facebookUrl, instagramUrl, noHP } = data;
   return new Promise((resolve, reject) => {
     api
       .post(`/build/site`, {
@@ -12,12 +15,20 @@ export const buildWeb = (data) => (dispatch) => {
         thirdColor: colorWeb[2],
         facebookUrl,
         instagramUrl,
-        noHP,
+        noHP
       })
       .then((response) => {
+        dispatch({
+          type: "LOADING",
+          value: false
+        });
         resolve(response);
       })
       .catch((error) => {
+        dispatch({
+          type: "LOADING",
+          value: false
+        });
         reject(error);
       });
   });

@@ -1,4 +1,4 @@
-import { Box, TextField, Typography, Divider, Button } from "@mui/material";
+import { Box, TextField, Typography, Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import RadioButtonComp from "../components/molecules/radioButtonComp";
@@ -7,6 +7,7 @@ import Copyright from "../components/organisms/footer";
 import { buildWeb } from "../redux/actions/buildWeb";
 import { createMitra } from "../redux/actions/mitra";
 import { useNavigate } from "react-router-dom";
+import ButtonLoading from "../components/molecules/buttonLoading";
 
 const color = [
   ["#0567a8", "#60d3e5", "#f6f0f0"],
@@ -14,7 +15,7 @@ const color = [
   ["#092147", "#1a488e", "#97b2de"],
   ["#7a1e55", "#811f4e", "#645653"],
   ["#fd4499", "#fe80b8", "#fec3fa"],
-  ["#913728", "#fa6821", "#c9d4d8"],
+  ["#913728", "#fa6821", "#c9d4d8"]
 ];
 
 function DaftarMitra(props) {
@@ -27,8 +28,8 @@ function DaftarMitra(props) {
     alamat: {
       jalan: "",
       kecamatan: "",
-      kota: "",
-    },
+      kota: ""
+    }
   });
   const [dataWeb, setDataWeb] = useState({
     namaBisnis: "",
@@ -81,7 +82,9 @@ function DaftarMitra(props) {
               .then((res) => {
                 setMessage(res.data.message);
                 setTimeout(() => {
-                  navigate("/success", { state: {url: res.data.data.ssl_url} });
+                  navigate("/success", {
+                    state: { url: res.data.data.ssl_url }
+                  });
                 }, 1000);
               })
               .catch((err) =>
@@ -103,14 +106,14 @@ function DaftarMitra(props) {
           p: { xs: 1, md: 3 },
           m: { xs: 1, md: 3 },
           boxShadow: 4,
-          borderRadius: "10px",
+          borderRadius: "10px"
         }}
       >
         <Typography variant="h5">Data Diri Anda</Typography>
         <Box
           sx={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "column"
           }}
         >
           <TextField
@@ -137,12 +140,12 @@ function DaftarMitra(props) {
           />
           <Divider
             sx={{
-              mt: 2,
+              mt: 2
             }}
           />
           <Typography
             sx={{
-              mt: 1,
+              mt: 1
             }}
             variant="h6"
             gutterBottom
@@ -155,8 +158,8 @@ function DaftarMitra(props) {
                 ...value,
                 alamat: {
                   ...value.alamat,
-                  jalan: e.target.value,
-                },
+                  jalan: e.target.value
+                }
               })
             }
             margin="normal"
@@ -169,8 +172,8 @@ function DaftarMitra(props) {
                 ...value,
                 alamat: {
                   ...value.alamat,
-                  kecamatan: e.target.value,
-                },
+                  kecamatan: e.target.value
+                }
               })
             }
             margin="normal"
@@ -183,8 +186,8 @@ function DaftarMitra(props) {
                 ...value,
                 alamat: {
                   ...value.alamat,
-                  kota: e.target.value,
-                },
+                  kota: e.target.value
+                }
               })
             }
             margin="normal"
@@ -193,12 +196,12 @@ function DaftarMitra(props) {
           />
           <Divider
             sx={{
-              mt: 2,
+              mt: 2
             }}
           />
           <Typography
             sx={{
-              mt: 1,
+              mt: 1
             }}
             variant="h6"
             gutterBottom
@@ -209,7 +212,7 @@ function DaftarMitra(props) {
             onChange={(e) =>
               setDataWeb({
                 ...dataWeb,
-                namaBisnis: e.target.value,
+                namaBisnis: e.target.value
               })
             }
             margin="normal"
@@ -222,7 +225,7 @@ function DaftarMitra(props) {
             onChange={(e) =>
               setDataWeb({
                 ...dataWeb,
-                facebookUrl: e.target.value,
+                facebookUrl: e.target.value
               })
             }
             type="url"
@@ -233,21 +236,23 @@ function DaftarMitra(props) {
             onChange={(e) =>
               setDataWeb({
                 ...dataWeb,
-                instagramUrl: e.target.value,
+                instagramUrl: e.target.value
               })
             }
             type="url"
             margin="normal"
             label="URL Instagram"
           />
-          <Button
+          <ButtonLoading
             onClick={handleDaftar}
             sx={{ mt: 2 }}
             variant="contained"
             color="primary"
+            statusLoading={props.loading}
+            title="daftar"
           >
             Daftar
-          </Button>
+          </ButtonLoading>
         </Box>
       </Box>
       <Copyright />
@@ -255,11 +260,13 @@ function DaftarMitra(props) {
   );
 }
 
-const reduxState = (state) => ({});
+const reduxState = (state) => ({
+  loading: state.isLoading
+});
 
 const reduxAction = (dispatch) => ({
   buildWeb: (data) => dispatch(buildWeb(data)),
-  createMitra: (data) => dispatch(createMitra(data)),
+  createMitra: (data) => dispatch(createMitra(data))
 });
 
 export default connect(reduxState, reduxAction)(DaftarMitra);
