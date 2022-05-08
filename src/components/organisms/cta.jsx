@@ -26,7 +26,7 @@ export default function CTA(props) {
         <b> Gratis</b>
       </Typography>
       <Button
-      onClick={() => navigate("/daftar/mitra")}
+      onClick={() => window.open("https://mitra.duniakeramik.com/daftar/mitra")}
         variant="contained"
         sx={{
           width: "80%",
